@@ -5,11 +5,11 @@ https://nk2028.shn.hk/image-annotator/
 https://nk2028.shn.hk/ipa-practise/
 https://nk2028.shn.hk/opencc-web/
 https://nk2028.shn.hk/putonghua-ipa-converter/
-https://nk2028.shn.hk/pyanxchet/
 https://nk2028.shn.hk/qieyun-autoderiver-legacy/
 https://nk2028.shn.hk/rhyme-stat/
 https://nk2028.shn.hk/tshet-uinh-autoderiver/
 https://nk2028.shn.hk/tshet-uinh-extrapolation-tool/
+https://nk2028.shn.hk/tshet-uinh-fanqie/
 https://nk2028.shn.hk/tshet-uinh-flashcard/
 https://nk2028.shn.hk/tshet-uinh-js/
 https://nk2028.shn.hk/tshet-uinh-tools/
