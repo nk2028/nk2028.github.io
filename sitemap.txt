@@ -1,6 +1,5 @@
 https://nk2028.shn.hk/
 https://nk2028.shn.hk/cht/
-https://nk2028.shn.hk/hdqt/
 https://nk2028.shn.hk/image-annotator/
 https://nk2028.shn.hk/ipa-practise/
 https://nk2028.shn.hk/opencc-web/
@@ -15,4 +14,5 @@ https://nk2028.shn.hk/tshet-uinh-js/
 https://nk2028.shn.hk/tshet-uinh-tools/
 https://nk2028.shn.hk/uinh-kyaengh-js/
 https://nk2028.shn.hk/uyghur/
+https://nk2028.shn.hk/yindian/
 https://nk2028.shn.hk/yonhkiengh/
