@@ -1,27 +1,553 @@
 <!DOCTYPE html>
-<html lang="en-GB" dir="ltr">
+<html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/63484757?s=400&amp;v=4">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
-  <title>nk2028 - Expert in Computational Linguistics</title>
-  <meta name="description" content="At nk2028, we are dedicated to developing innovative computer programs for language processing. Our expertise spans a diverse array of linguistic disciplines, with a focus on CJKV historical linguistics. Explore our projects and learn more about our work.">
-  <meta name="keywords" content="nk2028, computational linguistics, language processing, CJKV historical linguistics, modern Chinese, language tools">
-  <link rel="alternate" hreflang="zh-HK" href="cht/">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sugina-dev/cdn@20200716/pandoc.css">
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "16ad6c356b37426cb31816318ed5a42d"}'></script>
+  <meta charset="UTF-8" />
+  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/63484757?s=400&amp;v=4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="nk2028, computational linguistics, language processing, CJKV historical linguistics, modern Chinese, language tools" />
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "16ad6c356b37426cb31816318ed5a42d"}'></script>
+  <title>nk2028 - Computational Linguistics Expert</title>
+  <style>
+    /* SBB Web Font Faces */
+    @font-face {
+      font-family: "SBB";
+      src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Thin.woff2") format("woff2");
+      font-weight: 100;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "SBB";
+      src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Light.woff2") format("woff2");
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "SBB";
+      src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Roman.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "SBB";
+      src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ice-white: #fafbfc;
+      --snow: #ffffff;
+      --frost: #f4f6f8;
+      --birch: #e1ddd8;
+      --stone: #5a6a7a;
+      --pine: #1a2332;
+      --charcoal: #0f1419;
+      --shadow: rgba(26, 35, 50, 0.08);
+      --accent: #4a7ba7;
+      --accent-light: #6b9bc3;
+    }
+
+    body {
+      font-family: "SBB", sans-serif;
+      background: var(--ice-white);
+      color: var(--snow);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--snow);
+      padding: 4rem 3rem 0 3rem;
+      border-bottom: 1px solid var(--frost);
+    }
+
+    .lang-toggle {
+      position: absolute;
+      top: 3rem;
+      right: 3rem;
+      background: transparent;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--stone);
+      transition: all 0.2s ease;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .lang-toggle:hover {
+      color: var(--charcoal);
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .lang-toggle:hover::after {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25rem;
+      color: var(--charcoal);
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: var(--stone);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    main {
+      padding: 4rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+      border-left: 2px solid var(--charcoal);
+      padding-left: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--stone);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: transparent;
+      padding: 1.25rem;
+      border: 1px solid var(--birch);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      position: relative;
+    }
+
+    .project-card::after {
+      content: "→";
+      position: absolute;
+      right: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%) translateX(-4px);
+      opacity: 0;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--stone);
+      font-size: 1.1rem;
+    }
+
+    .project-card:hover {
+      border-color: var(--stone);
+      background: var(--frost);
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.005em;
+      transition: color 0.2s ease;
+    }
+
+    .project-card:hover .project-title {
+      color: var(--pine);
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--stone);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--charcoal);
+    }
+
+    .github-link {
+      display: inline-block;
+      background: transparent;
+      color: var(--pine);
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      border: 1px solid var(--birch);
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    .github-link span {
+      position: relative;
+    }
+
+    .github-link:hover {
+      color: var(--charcoal);
+      border-color: var(--charcoal);
+    }
+
+    footer {
+      background: var(--frost);
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--stone);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--frost);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+      }
+
+      header {
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      main {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .lang-toggle {
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to nk2028</h1>
-  <p><a href="cht/" lang="zh-HK" hreflang="zh-HK">中文版</a></p>
-  <h2>Overview</h2>
-  <p>At nk2028, we believe in the power of technology to unlock the mysteries of language and communication. With our expertise in computational linguistics, we strive to build tools that make it easier for researchers, students, and language enthusiasts to access, analyse, and understand our languages.</p>
-  <p>Our expertise spans a diverse array of linguistic disciplines, but we have gained recognition for our exceptional work in CJKV (Chinese, Japanese, Korean, and Vietnamese) historical linguistics. Our commitment to excellence in this field has established us as a leader in this domain. In addition, our team is actively exploring new possibilities in the realm of modern Chinese and other languages, contributing to our ongoing commitment to advancing the field of language processing.</p>
-  <h2>Projects</h2>
-  <p>For a comprehensive list of our projects, please visit our GitHub page at <a href="https://github.com/nk2028">https://github.com/nk2028</a>. Our repository of computational linguistics projects is constantly growing, and we invite you to explore and learn more about our work.</p>
-  <h2>Contact</h2>
-  <p>If you have any questions or would like to get in touch with us, please email us at <a href="mailto:support@nk2028.shn.hk">support@nk2028.shn.hk</a>.</p>
-  <h2>Join Us</h2>
-  <p>We are always looking for talented and passionate individuals to join our team. If you are interested in working with us on cutting-edge computational linguistics projects, please don't hesitate to send an email to <a href="mailto:support@nk2028.shn.hk">support@nk2028.shn.hk</a>. We look forward to hearing from you!</p>
+  <div class="container">
+    <header>
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-button-text"></span>
+      </button>
+      <h1>nk2028</h1>
+      <p class="subtitle" data-i18n="subtitle"></p>
+    </header>
+
+    <main>
+      <section>
+        <h2 data-i18n="overview-title"></h2>
+        <p data-i18n="overview-p1"></p>
+        <p data-i18n="overview-p2"></p>
+      </section>
+
+      <section>
+        <h2 data-i18n="projects-title"></h2>
+        <p data-i18n="projects-intro"></p>
+        <a href="https://github.com/nk2028" class="github-link" target="_blank" rel="noopener noreferrer"><span data-i18n="github-button"></span></a>
+        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <section>
+        <h2 data-i18n="contact-title"></h2>
+        <p><span data-i18n="contact-intro-span1"></span><a href="mailto:support@nk2028.shn.hk">support@nk2028.shn.hk</a><span data-i18n="contact-intro-span2"></span></p>
+      </section>
+
+      <section>
+        <h2 data-i18n="join-title"></h2>
+        <p><span data-i18n="join-text-span1"></span> <a href="mailto:support@nk2028.shn.hk">support@nk2028.shn.hk</a><span data-i18n="join-text-span2"></span></p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2020-2026 nk2028 <span data-i18n="footer-text"></span></p>
+  </footer>
+
+  <script>
+    // Bilingual content data
+    const i18n = {
+      "page-title": {
+        zh: "nk2028 - 計算語言學專家",
+        en: "nk2028 - Computational Linguistics Experts",
+      },
+      "subtitle": {
+        zh: "計算語言學專家",
+        en: "Computational Linguistics Experts",
+      },
+      "overview-title": {
+        zh: "概述",
+        en: "Overview",
+      },
+      "overview-p1": {
+        zh: "在 nk2028，我們相信技術的力量可以解開語言和交流的奧秘。利用我們在計算語言學方面的專業知識，我們努力建立工具，以便於研究人員、學生和語言愛好者存取、分析和理解我們的語言。",
+        en: "At nk2028, we believe in the power of technology to unlock the mysteries of language and communication. With our expertise in computational linguistics, we strive to build tools that make it easier for researchers, students, and language enthusiasts to access, analyse, and understand our languages.",
+      },
+      "overview-p2": {
+        zh: "我們的專業範疇涵蓋了各種語言學領域，但是我們在 CJKV（中文、日文、韓文和越南文）歷史語言學方面的卓越工作使我們得到認可，並在該領域中成為領導者。此外，我們的團隊正在積極探索現代中文和其他語言領域的新可能性，進一步貢獻了我們對推進語言處理領域的承諾。",
+        en: "Our expertise spans a diverse array of linguistic disciplines, but we have gained recognition for our exceptional work in CJKV (Chinese, Japanese, Korean, and Vietnamese) historical linguistics. Our commitment to excellence in this field has established us as a leader in this domain. In addition, our team is actively exploring new possibilities in the realm of modern Chinese and other languages, contributing to our ongoing commitment to advancing the field of language processing.",
+      },
+      "projects-title": {
+        zh: "專案",
+        en: "Projects",
+      },
+      "projects-intro": {
+        zh: "請在我們的 GitHub 頁面中查看我們的專案列表。我們的計算語言學專案儲存庫不斷增長，我們邀請您探索和了解我們的工作。",
+        en: "Please visit our GitHub page to view our list of projects. Our repository of computational linguistics projects is constantly growing, and we invite you to explore and learn more about our work.",
+      },
+      "github-button": {
+        zh: "訪問 GitHub",
+        en: "Visit GitHub",
+      },
+      "contact-title": {
+        zh: "聯絡",
+        en: "Contact",
+      },
+      "contact-intro-span1": {
+        zh: "如果您有任何疑問或想與我們聯絡，請傳送電子郵件至：",
+        en: "If you have any questions or would like to contact us, please send an email to: ",
+      },
+      "contact-intro-span2": {
+        zh: "。",
+        en: ".",
+      },
+      "join-title": {
+        zh: "加入我們",
+        en: "Join Us",
+      },
+      "join-text-span1": {
+        zh: "我們一直在尋找有才華和熱情的個人加入我們的團隊。如果您有興趣與我們一起在尖端計算語言學專案上工作，請不要猶豫，傳送電子郵件至",
+        en: "We are always looking for talented and passionate individuals to join our team. If you are interested in working with us on cutting-edge computational linguistics projects, please don't hesitate to send an email to",
+      },
+      "join-text-span2": {
+        zh: "。我們期待與您聯絡！",
+        en: ". We look forward to hearing from you!",
+      },
+      "footer-text": {
+        zh: "· 計算語言學專家",
+        en: "· Computational Linguistics Experts",
+      },
+      "lang-button": {
+        zh: "English",
+        en: "中文",
+      },
+    };
+
+    // Project descriptions
+    const projects = [
+      {
+        url: "tshet-uinh-autoderiver",
+        name: {
+          zh: "切韻音系自動推導器",
+          en: "Tshet-uinh Autoderiver",
+        },
+      },
+      {
+        url: "tshet-uinh-tools",
+        name: {
+          zh: "切韻音系查詢器",
+          en: "Tshet-uinh Query Tool",
+        },
+      },
+      {
+        url: "tshet-uinh-flashcard",
+        name: {
+          zh: "切韻 Flashcard",
+          en: "Tshet-uinh Flashcards",
+        },
+      },
+      {
+        url: "tshet-uinh-fanqie",
+        name: {
+          zh: "反切計算器",
+          en: "Fanqie Calculator",
+        },
+      },
+      {
+        url: "yindian",
+        name: {
+          zh: "音典網頁版",
+          en: "Yindian Web App",
+        },
+      },
+      {
+        url: "putonghua-ipa-converter",
+        name: {
+          zh: "普通話-IPA 轉換器",
+          en: "Putonghua-IPA Converter",
+        },
+      },
+      {
+        url: "ipa-practise",
+        name: {
+          zh: "IPA 練習器",
+          en: "IPA Practice Tool",
+        },
+      },
+      {
+        url: "rhyme-stat",
+        name: {
+          zh: "韻段離合指數統計工具",
+          en: "Rhyme Statistics Tool",
+        },
+      },
+      {
+        url: "opencc-web",
+        name: {
+          zh: "OpenCC 網頁版",
+          en: "OpenCC Web Interface",
+        },
+      },
+      {
+        url: "uyghur",
+        name: {
+          zh: "維吾爾語相關資源",
+          en: "Uyghur Language Resources",
+        },
+      },
+      {
+        url: "tshet-uinh-js",
+        name: {
+          zh: "TshetUinh.js 文檔",
+          en: "TshetUinh.js Documentation",
+        },
+      },
+      {
+        url: "uinh-kyaengh-js",
+        name: {
+          zh: "UinhKyaengh.js 文檔",
+          en: "UinhKyaengh.js Documentation",
+        },
+      },
+    ];
+
+    // Get language from URL parameter or default to en-GB
+    function getLanguageFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get("lang");
+      return lang === "zh-HK" || lang === "zh" ? "zh" : "en";
+    }
+
+    // Emplace project cards dynamically
+    function emplaceProjectCards(lang) {
+      const grid = document.getElementById("projects-grid");
+
+      // Clear existing cards
+      grid.innerHTML = "";
+
+      // Add cards for each project
+      projects.forEach(project => {
+        const card = document.createElement("a");
+        card.href = "https://nk2028.shn.hk/" + project.url + "/";
+        card.className = "project-card";
+        card.target = "_blank";
+        card.rel = "noopener";
+
+        const title = document.createElement("div");
+        title.className = "project-title";
+        title.textContent = project.name[lang];
+
+        const desc = document.createElement("div");
+        desc.className = "project-desc";
+        desc.textContent = project.url;
+
+        card.appendChild(title);
+        card.appendChild(desc);
+        grid.appendChild(card);
+      });
+    }
+
+    // Apply language to all elements
+    function applyLanguage(lang) {
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (i18n[key]) {
+          el.textContent = i18n[key][lang];
+        }
+      });
+
+      // Update language toggle button
+      document.getElementById("lang-button-text").textContent = i18n["lang-button"][lang];
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang === "en" ? "en-GB" : "zh-HK";
+
+      // Update title
+      document.title = i18n["page-title"][lang];
+    }
+
+    // Toggle language function
+    function toggleLanguage() {
+      const currentLang = document.documentElement.lang;
+      const newLang = currentLang === "en-GB" ? "zh" : "en";
+      applyLanguage(newLang);
+      emplaceProjectCards(newLang);
+    }
+
+    // Initialize language on page load
+    document.addEventListener("DOMContentLoaded", function () {
+      const initialLang = getLanguageFromURL();
+      applyLanguage(initialLang);
+      emplaceProjectCards(initialLang);
+    });
+  </script>
 </body>
 </html>

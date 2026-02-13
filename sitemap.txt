@@ -1,5 +1,5 @@
 https://nk2028.shn.hk/
-https://nk2028.shn.hk/cht/
+https://nk2028.shn.hk/?lang=zh-HK
 https://nk2028.shn.hk/image-annotator/
 https://nk2028.shn.hk/ipa-practise/
 https://nk2028.shn.hk/opencc-web/
