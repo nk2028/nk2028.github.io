@@ -54,15 +54,26 @@
       --shadow: rgba(26, 35, 50, 0.08);
       --accent: #4a7ba7;
       --accent-light: #6b9bc3;
+
+      --font-sans: "SBB", "Helvetica Neue", Helvetica, Arial;
+      --font-cjk-sans: "Source Han Sans HC", "Source Han Sans K", "Noto Sans CJK KR", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans", "Noto Sans CJK JP", "Source Han Sans TC", "Noto Sans CJK TC", "Noto Sans KR", "Noto Sans SC", "Noto Sans TC";
     }
 
     body {
-      font-family: "SBB", sans-serif;
+      font-family: var(--font-sans), sans-serif, sans-serif;
       background: var(--ice-white);
       color: var(--snow);
       line-height: 1.7;
       min-height: 100vh;
       padding: 0;
+    }
+
+    :lang(zh-HK) {
+      font-family: var(--font-sans), var(--font-cjk-sans), sans-serif, sans-serif;
+    }
+
+    :lang(en-GB) {
+      font-family: var(--font-sans), sans-serif, sans-serif;
     }
 
     .container {
@@ -506,6 +517,7 @@
 
         const desc = document.createElement("div");
         desc.className = "project-desc";
+        desc.lang = "en-GB"; // URLs are in English
         desc.textContent = project.url;
 
         card.appendChild(title);
