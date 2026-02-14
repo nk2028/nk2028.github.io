@@ -2,10 +2,12 @@
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
-  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/63484757?s=400&amp;v=4" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="keywords" content="nk2028, computational linguistics, language processing, CJKV historical linguistics, modern Chinese, language tools" />
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "16ad6c356b37426cb31816318ed5a42d"}'></script>
+  <link rel="canonical" href="https://nk2028.shn.hk/?lang=en-GB" />
+  <link rel="alternate" hreflang="en-GB" href="https://nk2028.shn.hk/?lang=en-GB" />
+  <link rel="alternate" hreflang="zh-HK" href="https://nk2028.shn.hk/?lang=zh-HK" />
+  <link rel="alternate" hreflang="x-default" href="https://nk2028.shn.hk/?lang=en-GB" />
   <title>nk2028 - Computational Linguistics Expert</title>
   <style>
     /* SBB Web Font Faces */
@@ -291,13 +293,13 @@
       }
     }
   </style>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "16ad6c356b37426cb31816318ed5a42d"}'></script>
+  <meta property="og:image" content="https://avatars3.githubusercontent.com/u/63484757?s=400&amp;v=4" />
 </head>
 <body>
   <div class="container">
     <header>
-      <button class="lang-toggle" onclick="toggleLanguage()">
-        <span id="lang-button-text"></span>
-      </button>
+      <button class="lang-toggle" id="lang-button-text" onclick="toggleLanguage()"></button>
       <h1>nk2028</h1>
       <p class="subtitle" data-i18n="subtitle"></p>
     </header>
@@ -384,7 +386,7 @@
         en: "Join Us",
       },
       "join-text-span1": {
-        zh: "我們一直在尋找有才華和熱情的個人加入我們的團隊。如果您有興趣與我們一起在尖端計算語言學專案上工作，請不要猶豫，傳送電子郵件至",
+        zh: "我們一直在尋找有才華和熱情的人加入我們的團隊。如果您有興趣與我們一起在尖端計算語言學專案上工作，請不要猶豫，傳送電子郵件至",
         en: "We are always looking for talented and passionate individuals to join our team. If you are interested in working with us on cutting-edge computational linguistics projects, please don't hesitate to send an email to",
       },
       "join-text-span2": {
@@ -489,11 +491,39 @@
       },
     ];
 
+    // Function to set or update meta tags
+    function setOrUpdateMeta(property, content) {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute("property", property);
+        document.head.appendChild(meta);
+      }
+
+      meta.content = content;
+    }
+
+    // Detect user preferred language
+    function getUserPreferredLanguage() {
+      const languages = navigator.languages || [navigator.language || navigator.userLanguage];
+
+      // Check whether the user prefers Chinese (zh) or English (en)
+      for (let lang of languages) {
+        const langCode = lang.toLowerCase().split("-")[0];
+
+        if (langCode === "zh") return "zh";
+        if (langCode === "en") return "en";
+      }
+
+      return "en";
+    }
+
     // Get language from URL parameter or default to en-GB
     function getLanguageFromURL() {
       const urlParams = new URLSearchParams(window.location.search);
       const lang = urlParams.get("lang");
-      return lang === "zh-HK" || lang === "zh" ? "zh" : "en";
+      return lang === "zh-HK" || lang === "zh" ? "zh" : lang === "en-GB" || lang === "en" ? "en" : null;
     }
 
     // Emplace project cards dynamically
@@ -546,19 +576,25 @@
       document.title = i18n["page-title"][lang];
     }
 
+    // Initialize or update language settings
+    function initOrUpdateLanguage(lang) {
+      setOrUpdateMeta("og:locale", lang === "zh" ? "zh_HK" : "en_GB");
+      setOrUpdateMeta("og:locale:alternate", lang === "zh" ? "en_GB" : "zh_HK");
+      applyLanguage(lang);
+      emplaceProjectCards(lang);
+    }
+
     // Toggle language function
     function toggleLanguage() {
       const currentLang = document.documentElement.lang;
       const newLang = currentLang === "en-GB" ? "zh" : "en";
-      applyLanguage(newLang);
-      emplaceProjectCards(newLang);
+      initOrUpdateLanguage(newLang);
     }
 
     // Initialize language on page load
     document.addEventListener("DOMContentLoaded", function () {
-      const initialLang = getLanguageFromURL();
-      applyLanguage(initialLang);
-      emplaceProjectCards(initialLang);
+      const initialLang = getLanguageFromURL() || getUserPreferredLanguage();
+      initOrUpdateLanguage(initialLang);
     });
   </script>
 </body>
