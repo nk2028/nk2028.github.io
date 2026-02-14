@@ -1,4 +1,3 @@
-// Bilingual content data
 const i18n = {
   "page-title": {
     zh: "nk2028 - 計算語言學專家",
@@ -31,6 +30,10 @@ const i18n = {
   "github-button": {
     zh: "訪問 GitHub",
     en: "Visit GitHub",
+  },
+  "tools-title": {
+    zh: "線上工具",
+    en: "Online Tools",
   },
   "contact-title": {
     zh: "聯絡",
@@ -66,8 +69,7 @@ const i18n = {
   },
 };
 
-// Project descriptions
-const projects = [
+const tools = [
   {
     url: "tshet-uinh-autoderiver",
     name: {
@@ -182,36 +184,34 @@ function getUserPreferredLanguage() {
   return "en";
 }
 
-// Get language from URL parameter or default to en-GB
 function getLanguageFromURL() {
   const urlParams = new URLSearchParams(window.location.search);
   const lang = urlParams.get("lang");
   return lang === "zh-HK" || lang === "zh" ? "zh" : lang === "en-GB" || lang === "en" ? "en" : null;
 }
 
-// Emplace project cards dynamically
-function emplaceProjectCards(lang) {
-  const grid = document.getElementById("projects-grid");
+function emplaceToolCards(lang) {
+  const grid = document.getElementById("tools-grid");
 
   // Clear existing cards
   grid.innerHTML = "";
 
-  // Add cards for each project
-  projects.forEach(project => {
+  // Add cards for each tool
+  tools.forEach(tool => {
     const card = document.createElement("a");
-    card.href = "https://nk2028.shn.hk/" + project.url + "/";
-    card.className = "project-card";
+    card.href = "https://nk2028.shn.hk/" + tool.url + "/";
+    card.className = "tool-card";
     card.target = "_blank";
     card.rel = "noopener";
 
     const title = document.createElement("div");
-    title.className = "project-title";
-    title.textContent = project.name[lang];
+    title.className = "tool-title";
+    title.textContent = tool.name[lang];
 
     const desc = document.createElement("div");
-    desc.className = "project-desc";
+    desc.className = "tool-desc";
     desc.lang = "en-GB"; // URLs are in English
-    desc.textContent = project.url;
+    desc.textContent = tool.url;
 
     card.appendChild(title);
     card.appendChild(desc);
@@ -239,15 +239,13 @@ function applyLanguage(lang) {
   document.title = i18n["page-title"][lang];
 }
 
-// Initialize or update language settings
 function initOrUpdateLanguage(lang) {
   setOrUpdateMeta("og:locale", lang === "zh" ? "zh_HK" : "en_GB");
   setOrUpdateMeta("og:locale:alternate", lang === "zh" ? "en_GB" : "zh_HK");
   applyLanguage(lang);
-  emplaceProjectCards(lang);
+  emplaceToolCards(lang);
 }
 
-// Toggle language function
 function toggleLanguage() {
   const currentLang = document.documentElement.lang;
   const newLang = currentLang === "en-GB" ? "zh" : "en";

@@ -58,7 +58,7 @@
       --accent-light: #6b9bc3;
 
       --font-sans: "SBB", "Helvetica Neue", Helvetica, Arial;
-      --font-cjk-sans: "Source Han Sans HC", "Source Han Sans K", "Noto Sans CJK KR", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans", "Noto Sans CJK JP", "Source Han Sans TC", "Noto Sans CJK TC", "Noto Sans KR", "Noto Sans SC", "Noto Sans TC";
+      --font-cjk-sans: "Chocolate Classical Sans", "Source Han Sans HC", "Source Han Sans K", "Noto Sans CJK KR", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans", "Noto Sans CJK JP", "Source Han Sans TC", "Noto Sans CJK TC", "Noto Sans KR", "Noto Sans SC", "Noto Sans TC";
     }
 
     body {
@@ -72,6 +72,7 @@
 
     :lang(zh-HK) {
       font-family: var(--font-sans), var(--font-cjk-sans), sans-serif, sans-serif;
+      font-language-override: "KOR";
     }
 
     :lang(en-GB) {
@@ -163,14 +164,14 @@
       color: var(--stone);
     }
 
-    .projects-grid {
+    .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 1.25rem;
       margin-top: 2rem;
     }
 
-    .project-card {
+    .tool-card {
       background: transparent;
       padding: 1.25rem;
       border: 1px solid var(--birch);
@@ -181,7 +182,7 @@
       position: relative;
     }
 
-    .project-card::after {
+    .tool-card::after {
       content: "→";
       position: absolute;
       right: 1.25rem;
@@ -193,17 +194,17 @@
       font-size: 1.1rem;
     }
 
-    .project-card:hover {
+    .tool-card:hover {
       border-color: var(--stone);
       background: var(--frost);
     }
 
-    .project-card:hover::after {
+    .tool-card:hover::after {
       opacity: 1;
       transform: translateY(-50%) translateX(0);
     }
 
-    .project-title {
+    .tool-title {
       font-size: 0.95rem;
       font-weight: 500;
       color: var(--charcoal);
@@ -212,11 +213,11 @@
       transition: color 0.2s ease;
     }
 
-    .project-card:hover .project-title {
+    .tool-card:hover .tool-title {
       color: var(--pine);
     }
 
-    .project-desc {
+    .tool-desc {
       font-size: 0.85rem;
       color: var(--stone);
       line-height: 1.5;
@@ -284,7 +285,7 @@
         right: 1.5rem;
       }
 
-      .projects-grid {
+      .tools-grid {
         grid-template-columns: 1fr;
       }
 
@@ -316,7 +317,11 @@
         <h2 data-i18n="projects-title"></h2>
         <p data-i18n="projects-intro"></p>
         <a href="https://github.com/nk2028" class="github-link" target="_blank" rel="noopener noreferrer"><span data-i18n="github-button"></span></a>
-        <div class="projects-grid" id="projects-grid"></div>
+      </section>
+
+      <section>
+        <h2 data-i18n="tools-title"></h2>
+        <div class="tools-grid" id="tools-grid"></div>
       </section>
 
       <section>
