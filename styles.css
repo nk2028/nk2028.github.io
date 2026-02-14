@@ -1,0 +1,283 @@
+/* SBB Web Font Faces */
+@font-face {
+  font-family: "SBB";
+  src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SBB";
+  src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SBB";
+  src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SBB";
+  src: url("https://nk2028.shn.hk/yindian/fonts/SBBWeb_v1_9/SBBWeb-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ice-white: #fafbfc;
+  --snow: #ffffff;
+  --frost: #f4f6f8;
+  --birch: #e1ddd8;
+  --stone: #5a6a7a;
+  --pine: #1a2332;
+  --charcoal: #0f1419;
+  --shadow: rgba(26, 35, 50, 0.08);
+  --accent: #4a7ba7;
+  --accent-light: #6b9bc3;
+
+  --font-sans: "SBB", "Helvetica Neue", Helvetica, Arial;
+  --font-cjk-sans: "Source Han Sans HC", "Source Han Sans K", "Noto Sans CJK KR", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans", "Noto Sans CJK JP", "Source Han Sans TC", "Noto Sans CJK TC", "Noto Sans KR", "Noto Sans SC", "Noto Sans TC";
+}
+
+body {
+  font-family: var(--font-sans), sans-serif, sans-serif;
+  background: var(--ice-white);
+  color: var(--snow);
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 0;
+}
+
+:lang(zh-HK) {
+  font-family: var(--font-sans), var(--font-cjk-sans), sans-serif, sans-serif;
+  font-language-override: "KOR";
+}
+
+:lang(en-GB) {
+  font-family: var(--font-sans), sans-serif, sans-serif;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--snow);
+  padding: 4rem 3rem 0 3rem;
+  border-bottom: 1px solid var(--frost);
+}
+
+.lang-toggle {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  background: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--stone);
+  transition: all 0.2s ease;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.lang-toggle:hover {
+  color: var(--charcoal);
+  transform: translateY(-1px);
+}
+
+.lang-toggle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.lang-toggle:hover::after {
+  width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.25rem;
+  color: var(--charcoal);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--stone);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
+main {
+  padding: 4rem 3rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--charcoal);
+  border-left: 2px solid var(--charcoal);
+  padding-left: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--stone);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.tool-card {
+  background: transparent;
+  padding: 1.25rem;
+  border: 1px solid var(--birch);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  position: relative;
+}
+
+.tool-card::after {
+  content: "→";
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  opacity: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--stone);
+  font-size: 1.1rem;
+}
+
+.tool-card:hover {
+  border-color: var(--stone);
+  background: var(--frost);
+}
+
+.tool-card:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.tool-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.005em;
+  transition: color 0.2s ease;
+}
+
+.tool-card:hover .tool-title {
+  color: var(--pine);
+}
+
+.tool-desc {
+  font-size: 0.85rem;
+  color: var(--stone);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--charcoal);
+}
+
+.github-link {
+  display: inline-block;
+  background: transparent;
+  color: var(--pine);
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid var(--birch);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.github-link span {
+  position: relative;
+}
+
+.github-link:hover {
+  color: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+footer {
+  background: var(--frost);
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--stone);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--frost);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+
+  header {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  main {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .lang-toggle {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
