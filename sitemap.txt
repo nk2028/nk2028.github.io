@@ -14,5 +14,7 @@ https://nk2028.shn.hk/tshet-uinh-js/
 https://nk2028.shn.hk/tshet-uinh-tools/
 https://nk2028.shn.hk/uinh-kyaengh-js/
 https://nk2028.shn.hk/uyghur/
+https://nk2028.shn.hk/uyghur/alphabet/zh-CN.html
+https://nk2028.shn.hk/uyghur/alphabet/zh-HK.html
 https://nk2028.shn.hk/yindian/
 https://nk2028.shn.hk/yonhkiengh/

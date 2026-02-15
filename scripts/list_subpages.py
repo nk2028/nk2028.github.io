@@ -3,18 +3,15 @@ import sys
 
 username = 'nk2028'
 
-response = requests.get(
-    f'https://api.github.com/users/{username}/repos?type=owner&per_page=100'
-)
+response = requests.get(f'https://api.github.com/users/{username}/repos?type=owner&per_page=100')
+response.raise_for_status()
 repos = response.json()
 
-excluded_repos = 'hello-world'
+excluded_repos = ('hello-world',)
 
 for repo in repos:
     if repo['name'] not in excluded_repos and repo['has_pages']:
         if not repo['homepage'].startswith('https://nk2028.shn.hk/'):
-            print(
-                f'W: homepage of {repo['name']} is {repo['homepage']}', file=sys.stderr
-            )
+            print(f'W: homepage of {repo['name']} is {repo['homepage']}', file=sys.stderr)
             continue
         print(repo['homepage'])
