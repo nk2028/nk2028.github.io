@@ -71,10 +71,10 @@ const i18n = {
 
 const tools = [
   {
-    url: "tshet-uinh-autoderiver",
+    url: "tshet-uinh-deriver",
     name: {
-      zh: "切韻音系自動推導器",
-      en: "Tshet-uinh Autoderiver",
+      zh: "切韻音系推導器",
+      en: "Tshet-uinh Deriver",
     },
   },
   {
