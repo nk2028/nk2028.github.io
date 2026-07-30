@@ -7,8 +7,8 @@ https://nk2028.shn.hk/putonghua-ipa-converter/
 https://nk2028.shn.hk/qieyun-autoderiver-legacy/
 https://nk2028.shn.hk/rhyme-stat/
 https://nk2028.shn.hk/tshet-uinh-deriver/
-https://nk2028.shn.hk/tshet-uinh-deriver/?lang=zh-HK
 https://nk2028.shn.hk/tshet-uinh-deriver/?lang=en-GB
+https://nk2028.shn.hk/tshet-uinh-deriver/?lang=zh-HK
 https://nk2028.shn.hk/tshet-uinh-extrapolation-tool/
 https://nk2028.shn.hk/tshet-uinh-fanqie/
 https://nk2028.shn.hk/tshet-uinh-flashcard/
