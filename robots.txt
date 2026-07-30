@@ -1,2 +1,6 @@
 User-agent: *
 Disallow: /hello-world/
+
+Sitemap: https://nk2028.shn.hk/sitemap.txt
+Sitemap: https://nk2028.shn.hk/uyghur/sitemap.xml
+Sitemap: https://nk2028.shn.hk/tshet-uinh-deriver/sitemap.xml
